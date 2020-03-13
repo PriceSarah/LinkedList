@@ -1,36 +1,233 @@
-# raygame - sample project
+Sarah Price
+s198041
+Assesment 4- LinkedList
+LinkedList Documentation
 
-This is a sample C++ project setup with [raylib][raylib] for Visual Studio 2017.
-Raylib is a simple game programming framework that is designed to be friendly to
-beginners. It is created by [Ramon Santamaria (@raysan5)][raysan].
 
-It is primarily intended for use by students in the Game Programming course at
-the Seattle Campus of the Academy of Interactive Entertainment.
+Description: create a linked list
 
-[raylib]:https://github.com/raysan5/raylib
-[raysan]:https://github.com/raysan5
+File: Iterator.h
 
-## Building
+ Description: used to move through the list
 
-This project supports by **Visual Studio 2017** or newer.
+     Attributes:
+     
+         -Name: currentNode
+         Description: declares a node
+         Type: Node<T>*
+         Visibility: private
+         
+     Operations:
+         
+         -Name: ++
+         Description: returns the next thing in the list
+         Type: Iterator<T> operator
+         Visibility: public
+         
+         -Name: --
+         Description: returns the previous thing in the list
+         Type: Iterator<T> operator
+         Visibility: public
+         
+         
+         -Name: *
+         Description: returns the data at that point in the list
+         Type: T operator
+         Visibility: public
+         
+         -Name: Iterator
+         Description: default constructor
+         Type: constructor
+         Visibility: public
+         
+         -Name: ~Iterator
+         Description: default deconstructor
+         Type: deconstructor
+         Visibility: public
+         
+         -Name: Iterator
+         Description: creates a pointer to the current node
+         Type: constructor
+         Visibility: public
+         
+         -Name: ==
+         Description: checks to see if the currentNode matches inputted another node
+         Type: bool operator
+         Visibility: public
+         
+         -Name: !=
+         Description: checks to see if the currentNode does not match another inputted node
+         Type: bool operator
+         Visibility: public
+         
+File: List.h
 
-Clone the repository and open the solution in Visual Studio. Both the solution
-and project should already be configured and ready to start working with. To
-test this, build and run the provided sample project.
+ Description: holds data
 
-![A screenshot of the included sample project](.github/raygame.png)
+     Attributes:
+     
+         -Name: mCout
+         Description: used to keep tract of posistion in the list
+         Type: int
+         Visibility: protected
+         
+         -Name: m_last
+         Description: the last spot in the list
+         Type: Node<T>*
+         Visibility: protected
+         
+         -Name: m_first
+         Description: the first spot in the list
+         Type: Node<T>*
+         Visibility: protected
+         
+         -Name: search
+         Description: returns true if node is found
+         Type: virtual bool
+         Visibility: public
+         
+         -Name: insertFirst
+         Description: adds a node to the beginning of the list
+         Type: virtual void
+         Visibility: public
+         
+         -Name: insertLast
+         Description: adds a node to the end of the list
+         Type: virtual void
+         Visibility: public
+         
+         -Name: deleteNode
+         Description: deletes a node
+         Type: virtual void
+         Visibility: public
+         
+     Operations:
+         
+         -Name: initializeList
+         Description: set everything in list to nothing
+         Type: void
+         Visibility: public
+         
+         -Name: isListEmpty
+         Description: checks to see if list is empty
+         Type: bool
+         Visibility: public
+         
+         -Name: length
+         Description: used to keep tract of how long the list is
+         Type: int
+         Visibility: public
+         
+         -Name: front
+         Description: returns the info in the first spot of the list
+         Type: T
+         Visibility: public
+         
+         -Name: back 
+         Description: returns the info in the last spot of the list
+         Type: T
+         Visibility: public
+         
+         -Name: begin
+         Description: iterates through the list starting with the beginning
+         Type: Iterator<T>
+         Visibility: public
+         
+         -Name: end
+         Description: iterates through the list starting with the beginning
+         Type: Iterator<T>
+         Visibility: public
+         
+         -Name: List
+         Description: default constructor
+         Type: constructor
+         Visibility: public
+         
+         -Name: ~List
+         Description: default deconstructor
+         Type: deconstructor
+         Visibility: public
+         
+         -Name: copyList
+         Description: copies contents of list
+         Type: void
+         Visibility: private
+         
+File: Node.h
 
-The sample project that is provided is the [basic window example][basicexample]
-from raylib. Further examples can be found in its [repository][rayexample] or
-on the [website][rayexamplesite].
+ Description: pieces of data that is put into lists
 
-You can review the [cheatsheet][raycheat] for the full range of functions made
-available through raylib.
+     Attributes:
+     
+         -Name: info
+         Description: the information that is stored in a node
+         Type: T
+         Visibility: public
+         
+         -Name: next
+         Description: the node that is next in the list
+         Type: Node<T> *
+         Visibility: public
+         
+         -Name: previous
+         Description: the node that is previous in the list
+         Type: Node<T> *
+         Visibility: public
+         
+     Operations:
+         
+         -Name: Node
+         Description: default constructor
+         Type: constructor
+         Visibility: public
+         
+         -Name: ~Node
+         Description: default deconstructor
+         Type: deconstructor
+         Visibility: public
+         
+File: UnorderedList.h
 
-[basicexample]:https://github.com/raysan5/raylib/blob/master/examples/core/core_basic_window.cpp
-[rayexample]:https://github.com/raysan5/raylib/tree/master/examples
-[rayexamplesite]:https://www.raylib.com/examples.html
-[raycheat]:https://www.raylib.com/cheatsheet/cheatsheet.html
+ Description: list that is not ordered
+         
+     Operations:
+         
+         -Name: search
+         Description: returns true if node is found
+         Type: bool
+         Visibility: public
+         
+         -Name: insertFirst
+         Description: adds a node to the beginning of the list
+         Type: void
+         Visibility: public
+         
+         -Name: insertLast
+         Description: adds a node to the end of the list
+         Type: void
+         Visibility: public
+         
+         -Name: deleteNode
+         Description: deletes a node
+         Type: void
+         Visibility: public
+         
+         -Name: clear
+         Description: removes everything in the list
+         Type: void
+         Visibility: public
+         
+File: main.cpp
+
+ Description: runs on start up; where key functions are called
+
+     Operations:
+         
+         -Name: main
+         Description: runs on start up
+         Type: int
+         Visibility: private
+
 
 ## License
 
